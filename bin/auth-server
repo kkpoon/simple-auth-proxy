@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+require("babel-register");
+var App = require('../src');
+
+var TARGET_URI = process.env.TARGET_URI;
+
+var app = App(TARGET_URI);
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('listening on port ' + server.address().port);
+});
